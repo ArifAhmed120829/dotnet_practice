@@ -1,0 +1,13 @@
+/home/arif/workspace/dotnet_practice/Ex.Domain/bin/Debug/net9.0/Ex.Domain.deps.json
+/home/arif/workspace/dotnet_practice/Ex.Domain/bin/Debug/net9.0/Ex.Domain.dll
+/home/arif/workspace/dotnet_practice/Ex.Domain/bin/Debug/net9.0/Ex.Domain.pdb
+/home/arif/workspace/dotnet_practice/Ex.Domain/obj/Debug/net9.0/Ex.Domain.csproj.AssemblyReference.cache
+/home/arif/workspace/dotnet_practice/Ex.Domain/obj/Debug/net9.0/Ex.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/home/arif/workspace/dotnet_practice/Ex.Domain/obj/Debug/net9.0/Ex.Domain.AssemblyInfoInputs.cache
+/home/arif/workspace/dotnet_practice/Ex.Domain/obj/Debug/net9.0/Ex.Domain.AssemblyInfo.cs
+/home/arif/workspace/dotnet_practice/Ex.Domain/obj/Debug/net9.0/Ex.Domain.csproj.CoreCompileInputs.cache
+/home/arif/workspace/dotnet_practice/Ex.Domain/obj/Debug/net9.0/Ex.Domain.sourcelink.json
+/home/arif/workspace/dotnet_practice/Ex.Domain/obj/Debug/net9.0/Ex.Domain.dll
+/home/arif/workspace/dotnet_practice/Ex.Domain/obj/Debug/net9.0/refint/Ex.Domain.dll
+/home/arif/workspace/dotnet_practice/Ex.Domain/obj/Debug/net9.0/Ex.Domain.pdb
+/home/arif/workspace/dotnet_practice/Ex.Domain/obj/Debug/net9.0/ref/Ex.Domain.dll

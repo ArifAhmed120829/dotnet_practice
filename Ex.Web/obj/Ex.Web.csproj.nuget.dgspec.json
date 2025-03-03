@@ -4,14 +4,14 @@
     "/home/arif/workspace/dotnet_practice/Ex.Web/Ex.Web.csproj": {}
   },
   "projects": {
-    "/home/arif/workspace/dotnet_practice/Ex.Web/Ex.Web.csproj": {
+    "/home/arif/workspace/dotnet_practice/Ex.Domain/Ex.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/arif/workspace/dotnet_practice/Ex.Web/Ex.Web.csproj",
-        "projectName": "Ex.Web",
-        "projectPath": "/home/arif/workspace/dotnet_practice/Ex.Web/Ex.Web.csproj",
+        "projectUniqueName": "/home/arif/workspace/dotnet_practice/Ex.Domain/Ex.Domain.csproj",
+        "projectName": "Ex.Domain",
+        "projectPath": "/home/arif/workspace/dotnet_practice/Ex.Domain/Ex.Domain.csproj",
         "packagesPath": "/home/arif/.nuget/packages/",
-        "outputPath": "/home/arif/workspace/dotnet_practice/Ex.Web/obj/",
+        "outputPath": "/home/arif/workspace/dotnet_practice/Ex.Domain/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/arif/.nuget/NuGet/NuGet.Config"
@@ -43,6 +43,181 @@
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[9.0.0-preview.7.24405.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.200/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/arif/workspace/dotnet_practice/Ex.Infrastructure/Ex.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/arif/workspace/dotnet_practice/Ex.Infrastructure/Ex.Infrastructure.csproj",
+        "projectName": "Ex.Infrastructure",
+        "projectPath": "/home/arif/workspace/dotnet_practice/Ex.Infrastructure/Ex.Infrastructure.csproj",
+        "packagesPath": "/home/arif/.nuget/packages/",
+        "outputPath": "/home/arif/workspace/dotnet_practice/Ex.Infrastructure/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/arif/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "/home/arif/workspace/dotnet_practice/Ex.Domain/Ex.Domain.csproj": {
+                "projectPath": "/home/arif/workspace/dotnet_practice/Ex.Domain/Ex.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.200"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[9.0.2, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "target": "Package",
+              "version": "[9.0.0-preview.7.24405.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "target": "Package",
+              "version": "[9.0.0-preview.7.24405.3, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[9.0.4, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.200/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/arif/workspace/dotnet_practice/Ex.Web/Ex.Web.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/arif/workspace/dotnet_practice/Ex.Web/Ex.Web.csproj",
+        "projectName": "Ex.Web",
+        "projectPath": "/home/arif/workspace/dotnet_practice/Ex.Web/Ex.Web.csproj",
+        "packagesPath": "/home/arif/.nuget/packages/",
+        "outputPath": "/home/arif/workspace/dotnet_practice/Ex.Web/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/arif/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "/home/arif/workspace/dotnet_practice/Ex.Domain/Ex.Domain.csproj": {
+                "projectPath": "/home/arif/workspace/dotnet_practice/Ex.Domain/Ex.Domain.csproj"
+              },
+              "/home/arif/workspace/dotnet_practice/Ex.Infrastructure/Ex.Infrastructure.csproj": {
+                "projectPath": "/home/arif/workspace/dotnet_practice/Ex.Infrastructure/Ex.Infrastructure.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.200"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "Microsoft.Data.SqlClient": {
+              "target": "Package",
+              "version": "[6.0.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "target": "Package",
+              "version": "[9.0.0-preview.7.24405.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[9.0.0-preview.7.24405.3, )"
+            },
+            "Npgsql": {
+              "target": "Package",
+              "version": "[9.0.3, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[9.0.4, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

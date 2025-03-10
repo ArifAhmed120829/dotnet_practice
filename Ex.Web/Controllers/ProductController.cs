@@ -1,15 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Ex.Domain.Entities;
 using Ex.Infrastructure.Data;
+using Ex.Domain.Entities;
+using System.Linq;
 
 namespace Ex.Web.Controllers
 {
-    // Route for views
     [Route("Product")]
     public class ProductController : Controller
     {
@@ -20,94 +15,87 @@ namespace Ex.Web.Controllers
             _context = context;
         }
 
-        // Action to return view
+        // LIST PRODUCTS
         [Route("")]
         public IActionResult Index()
         {
             var products = _context.Products.ToList();
-            return View(products); // Passing products data to the view
+            return View(products);
         }
 
-        // API route to get all products (still works)
-        [HttpGet("api")]
-        public async Task<ActionResult<IEnumerable<Product>>> GetProducts()
+        // CREATE PRODUCT (GET)
+        [HttpGet]
+        [Route("Create")]
+        public IActionResult Create()
         {
-            return await _context.Products.ToListAsync();
+            return View();
         }
 
-        // API route to get a specific product by ID
-        [HttpGet("api/{id}")]
-        public async Task<ActionResult<Product>> GetProduct(int id)
+        // CREATE PRODUCT (POST)
+        [HttpPost]
+        [Route("Create")]
+        public IActionResult Create(Product product)
         {
-            var product = await _context.Products.FindAsync(id);
+            if (ModelState.IsValid)
+            {
+                product.CreatedDate = DateTime.UtcNow;
+                product.UpdatedDate = DateTime.UtcNow;
+                _context.Products.Add(product);
+                _context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(product);
+        }
 
+        // EDIT PRODUCT (GET)
+        [HttpGet]
+        [Route("Edit/{id}")]
+        public IActionResult Edit(int id)
+        {
+            var product = _context.Products.Find(id);
             if (product == null)
             {
                 return NotFound();
             }
-
-            return product;
+            return View(product);
         }
 
-        // API route for PUT request to update product
-        [HttpPut("api/{id}")]
-        public async Task<IActionResult> PutProduct(int id, Product product)
+        // EDIT PRODUCT (POST)
+        [HttpPost]
+        [Route("Edit")]
+        public IActionResult Edit(Product product)
         {
-            if (id != product.Id)
+            if (ModelState.IsValid)
             {
-                return BadRequest();
-            }
-
-            _context.Entry(product).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!ProductExists(id))
+                var existingProduct = _context.Products.Find(product.Id);
+                if (existingProduct == null)
                 {
                     return NotFound();
                 }
-                else
-                {
-                    throw;
-                }
+
+                existingProduct.Name = product.Name;
+                existingProduct.Price = product.Price;
+                existingProduct.UpdatedDate = DateTime.Now;
+                existingProduct.Description = product.Description;
+                
+
+                _context.SaveChanges();
+                return RedirectToAction("Index");
             }
-
-            return NoContent();
+            return View(product);
         }
 
-        // API route for POST request to create product
-        [HttpPost("api")]
-        public async Task<ActionResult<Product>> PostProduct(Product product)
+        // DELETE PRODUCT
+        [Route("Delete/{id}")]
+        public IActionResult Delete(int id)
         {
-            _context.Products.Add(product);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetProduct", new { id = product.Id }, product);
-        }
-
-        // API route for DELETE request to delete product
-        [HttpDelete("api/{id}")]
-        public async Task<IActionResult> DeleteProduct(int id)
-        {
-            var product = await _context.Products.FindAsync(id);
-            if (product == null)
+            var product = _context.Products.Find(id);
+            if (product != null)
             {
-                return NotFound();
+                _context.Products.Remove(product);
+                _context.SaveChanges();
             }
-
-            _context.Products.Remove(product);
-            await _context.SaveChangesAsync();
-
-            return NoContent();
-        }
-
-        private bool ProductExists(int id)
-        {
-            return _context.Products.Any(e => e.Id == id);
+            return RedirectToAction("Index");
         }
     }
 }
